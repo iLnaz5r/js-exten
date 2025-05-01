@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Browser extensions manager UI</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .btn{
+      border-radius: 30px;
+      padding: 6px;
+      border: 1px solid rgb(194, 205, 210);
+      background-color: white;
+      width: 60px;
+      transition: 0.3s ease, color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: rgb(183, 22, 22);
+      color: white;
+      cursor: pointer;
+    }
+    body{
+      background-color: aliceblue;
+    }
+    .dark {
+      background-color: rgb(10, 5, 49);
+    }
+    .nav2{
+      display: none;
+    }
+    .burger-menu{
+      display: none;
+      width: 20px;
+      height: 20px;
+    }
+    @media screen and (max-width:450px) {
+    .nav2 p{
+        margin-top: 100px;
+    }
+    header{
+      display: flex;
+      align-items: center;
+      height: 40px;
+      margin-top: 10px;
+      z-index: 0;
+    }
+    header button{
+      margin-left: -500px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      width: 30px;
+      height: 30px;
+    }
+    header button img{
+      width: 15px;
+    }
+    .logo{
+      width: 100px;
+    }
+    .burger-menu{
+      display: block;
+      z-index: 2;
+      margin-left: -70px;
+      width: 30px;
+    }
+    .active{
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      width: 200px;
+      height: 100vh;
+      right: 0;
+      top: 0;
+      padding-top: 50px;
+      padding-left: 20px;
+      background-color: white;
+      box-shadow: -10px 30px 30px gray;
+      z-index: 1;
+    }
+    .burger-active{
+      content: url(close.png);
+    }
+
+    }
+  </style>
+</head>
+<body style="width: 100%; padding: 0; margin: 0; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+  <div class="container" style="display: flex; flex-direction: column;padding: 70px;">
+    <header class="head" style="display: flex; justify-content: space-between; padding: 10px; background-color: rgb(255, 255, 255);border-radius: 20px;box-shadow: -4px 3px 10px rgb(190, 189, 189);">
+      <nav style="display: flex; justify-content: space-between;">
+        <img class="logo" src="logo.svg" width="180px">
+        <button id="mode" style="background-color: rgb(232, 230, 230); padding: 10px; border-radius: 10px; cursor: pointer;"><img id="mode" src="icon-moon.svg"></button>
+        <button id="sun" style="display: none; background-color: rgb(232, 230, 230); padding: 10px; border-radius: 10px; cursor: pointer;"><img id="sun" src="icon-sun.svg"></button>
+      </nav>
+      <div class="nav2">
+        <p>Home</p>
+        <p>About</p>
+        <p>Contact</p>
+        <p>Email</p>
+      </div>
+      <img class="burger-menu" src="menu.svg">
+    </header>
+    <div class="first-text" style="display: flex; align-items: center; justify-content: space-between; padding: 10px;">
+      <h1 class="maintext" style="color: rgb(6, 6, 66);">Extensions List</h1>
+      <div class="inside" style="display: flex; flex-direction: row;">
+        <button class="btn" >All</button>
+        <button class="btn" >Active</button>
+        <button class="btn">Inactive</button>
+      </div>
+    </div>
+
+    <div class="types" style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; margin-top: 50px; padding: 10px; gap: 20px;">
+      <div class="type1" style="background-color: white; padding-inline: 10px; border-radius: 20px;border: 1px solid rgb(194, 205, 210);    height: 150px;">
+        <div class="type1-inside" style="display: flex; gap: 12px;">
+          <img src="logo-devlens.svg" width="40px">
+          <div class="type1-text" style="display: flex; flex-direction: column;">
+            <h4 style="margin-bottom: -12px;">DevLens</h4>
+            <p class="type1-parag" style="color: rgb(140, 141, 143); font-size: 13px; font-weight: 100;">Quickly inspect page layouts and visualize element boundaries.</p>
+          </div>
+        </div>
+        <div class="type1-bottom" style="display: flex; justify-content: space-between; margin-top: 30px;">
+          <button class="btn" style="font-size: 9px;">Remove</button>
+          <div class="red-button">
+            <button class="btn"></button>
+            <button class="btn" style="display: none;"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="type2" style="background-color: white; padding-inline: 10px; border-radius: 20px;border: 1px solid rgb(194, 205, 210);    height: 150px;">
+        <div class="type1-inside" style="display: flex; gap: 12px;">
+          <img src="logo-style-spy.svg" width="40px">
+          <div class="type2-text" style="display: flex; flex-direction: column;">
+            <h4 style="margin-bottom: -12px;">DevLens</h4>
+            <p class="type2-parag" style="color: rgb(140, 141, 143); font-size: 13px; font-weight: 100;">Quickly inspect page layouts and visualize element boundaries.</p>
+          </div>
+        </div>
+        <div class="type1-bottom" style="display: flex; justify-content: space-between; margin-top: 30px;">
+          <button class="btn" style="font-size: 9px;">Remove</button>
+          <div class="red-button">
+            <button class="btn"></button>
+            <button class="btn" style="display: none;"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="type3" style="background-color: white; padding-inline: 10px; border-radius: 20px;border: 1px solid rgb(194, 205, 210);    height: 150px;">
+        <div class="type3-inside" style="display: flex; gap: 12px;">
+          <img src="logo-json-wizard.svg" width="40px">
+          <div class="type3-text" style="display: flex; flex-direction: column;">
+            <h4 style="margin-bottom: -12px;">DevLens</h4>
+            <p class="type3-parag" style="color: rgb(140, 141, 143); font-size: 13px; font-weight: 100;">Quickly inspect page layouts and visualize element boundaries.</p>
+          </div>
+        </div>
+        <div class="type1-bottom" style="display: flex; justify-content: space-between; margin-top: 30px;">
+          <button class="btn" style="font-size: 9px;">Remove</button>
+          <div class="red-button">
+            <button class="btn"></button>
+            <button class="btn" style="display: none;"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="type4" style="background-color: white; padding-inline: 10px; border-radius: 20px;border: 1px solid rgb(194, 205, 210);    height: 150px;">
+        <div class="type4-inside" style="display: flex; gap: 12px;">
+          <img src="logo-tab-master-pro.svg" width="40px">
+          <div class="type4-text" style="display: flex; flex-direction: column;">
+            <h4 style="margin-bottom: -12px;">DevLens</h4>
+            <p class="type4-parag" style="color: rgb(140, 141, 143); font-size: 13px; font-weight: 100;">Quickly inspect page layouts and visualize element boundaries.</p>
+          </div>
+        </div>
+        <div class="type1-bottom" style="display: flex; justify-content: space-between; margin-top: 30px;">
+          <button class="btn" style="font-size: 9px;">Remove</button>
+          <div class="red-button">
+            <button class="btn"></button>
+            <button class="btn" style="display: none;"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="type5" style="background-color: white; padding-inline: 10px; border-radius: 20px;border: 1px solid rgb(194, 205, 210);    height: 150px;">
+        <div class="type5-inside" style="display: flex; gap: 12px;">
+          <img src="logo-markup-notes.svg" width="40px">
+          <div class="type5-text" style="display: flex; flex-direction: column;">
+            <h4 style="margin-bottom: -12px;">DevLens</h4>
+            <p class="type5-parag" style="color: rgb(140, 141, 143); font-size: 13px; font-weight: 100;">Quickly inspect page layouts and visualize element boundaries.</p>
+          </div>
+        </div>
+        <div class="type1-bottom" style="display: flex; justify-content: space-between; margin-top: 30px;">
+          <button class="btn" style="font-size: 9px;">Remove</button>
+          <div class="red-button">
+            <button class="btn"></button>
+            <button  class="btn" style="display: none;"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="type6" style="background-color: white; padding-inline: 10px; border-radius: 20px;border: 1px solid rgb(194, 205, 210);    height: 150px;">
+        <div class="type6-inside" style="display: flex; gap: 12px;">
+          <img src="logo-palette-picker.svg" width="40px">
+          <div class="type6-text" style="display: flex; flex-direction: column;">
+            <h4 style="margin-bottom: -12px;">DevLens</h4>
+            <p class="type6-parag" style="color: rgb(140, 141, 143); font-size: 13px; font-weight: 100;">Quickly inspect page layouts and visualize element boundaries.</p>
+          </div>
+        </div>
+        <div class="type1-bottom" style="display: flex; justify-content: space-between; margin-top: 30px;">
+          <button class="btn" style="font-size: 9px;">Remove</button>
+          <div class="red-button">
+            <button class="btn"></button>
+            <button class="btn" style="display: none;"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="type7" style="background-color: white; padding-inline: 10px; border-radius: 20px;border: 1px solid rgb(194, 205, 210);    height: 150px;">
+        <div class="type7-inside" style="display: flex; gap: 12px;">
+          <img src="logo-link-checker.svg" width="40px">
+          <div class="type7-text" style="display: flex; flex-direction: column;">
+            <h4 style="margin-bottom: -12px;">DevLens</h4>
+            <p class="type7-parag" style="color: rgb(140, 141, 143); font-size: 13px; font-weight: 100;">Quickly inspect page layouts and visualize element boundaries.</p>
+          </div>
+        </div>
+        <div class="type1-bottom" style="display: flex; justify-content: space-between; margin-top: 30px;">
+          <button class="btn" style="font-size: 9px;">Remove</button>
+          <div class="red-button">
+            <button class="btn"></button>
+            <button class="btn" style="display: none;"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="type8" style="background-color: white; padding-inline: 10px; border-radius: 20px;border: 1px solid rgb(194, 205, 210);    height: 150px;">
+        <div class="type8-inside" style="display: flex; gap: 12px;">
+          <img src="logo-console-plus.svg" width="40px">
+          <div class="type8-text" style="display: flex; flex-direction: column;">
+            <h4 style="margin-bottom: -12px;">DevLens</h4>
+            <p class="type8-parag" style="color: rgb(140, 141, 143); font-size: 13px; font-weight: 100;">Quickly inspect page layouts and visualize element boundaries.</p>
+          </div>
+        </div>
+        <div class="type1-bottom" style="display: flex; justify-content: space-between; margin-top: 30px;">
+          <button class="btn" style="font-size: 9px;">Remove</button>
+          <div class="red-button">
+            <button class="btn"></button>
+            <button  class="btn" style="display: none;"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
